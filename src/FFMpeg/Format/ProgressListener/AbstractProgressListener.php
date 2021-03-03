@@ -164,7 +164,7 @@ abstract class AbstractProgressListener extends EventEmitter implements Listener
         }
 
         if (null === $this->totalSize || null === $this->duration) {
-            return;
+        //    return;
         }
 
         $matches = array();
