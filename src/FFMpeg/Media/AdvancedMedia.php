@@ -222,7 +222,8 @@ class AdvancedMedia extends AbstractMediaType
         FormatInterface $format,
         $outputFilename,
         $forceDisableAudio = false,
-        $forceDisableVideo = false
+        $forceDisableVideo = false,
+        $duration = 0
     ) {
         $commands = array();
         foreach ($outs as $label) {
@@ -239,7 +240,7 @@ class AdvancedMedia extends AbstractMediaType
 
         // Create a listener.
         if ($format instanceof ProgressableInterface) {
-            $listener = $format->createProgressListener($this, $this->ffprobe, 1, 1, 0);
+            $listener = $format->createProgressListener($this, $this->ffprobe, 1, 1, $duration);
             $this->listeners = array_merge($this->listeners, $listener);
         }
 
